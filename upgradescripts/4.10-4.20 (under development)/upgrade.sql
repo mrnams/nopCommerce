@@ -241,7 +241,7 @@ set @resources='
   </LocaleResource>
   <LocaleResource Name="Checkout.Addresses.Invalid">
     <Value>You have {0} invalid address(es)</Value>
-  </LocaleResource>  
+  </LocaleResource>
 </Language>
 '
 
@@ -1025,6 +1025,14 @@ IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [Name] = N'catalogsettings.exportim
 BEGIN
     INSERT [Setting] ([Name], [Value], [StoreId])
     VALUES (N'catalogsettings.exportimportproductuselimitedtostores', N'False', 0)
+END
+GO
+
+--new setting
+IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [Name] = N'storeinformationsettings.minificationenabled')
+BEGIN
+    INSERT [Setting] ([Name], [Value], [StoreId])
+    VALUES (N'storeinformationsettings.minificationenabled', N'False', 0)
 END
 GO
 

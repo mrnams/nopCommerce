@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nop.Core.Infrastructure;
 using Nop.Web.Framework.Infrastructure.Extensions;
+using WebMarkupMin.AspNetCore2;
 
 namespace Nop.Web.Framework.Infrastructure
 {
@@ -21,6 +22,9 @@ namespace Nop.Web.Framework.Infrastructure
             //add MiniProfiler services
             services.AddNopMiniProfiler();
 
+            //add WebMarkupMin services to the services container
+            services.AddNopWebMarkupMin();
+
             //add and configure MVC feature
             services.AddNopMvc();
 
@@ -36,6 +40,9 @@ namespace Nop.Web.Framework.Infrastructure
         {
             //add MiniProfiler
             application.UseMiniProfiler();
+
+            //use WebMarkupMin
+            application.UseWebMarkupMin();
 
             //MVC routing
             application.UseNopMvc();
