@@ -6087,7 +6087,8 @@ namespace Nop.Services.Installation
             {
                 GdprEnabled = false,
                 LogPrivacyPolicyConsent = true,
-                LogNewsletterConsent = true
+                LogNewsletterConsent = true,
+                LogUserProfileChanges = true
             });
 
             settingService.SaveSetting(new CatalogSettings
