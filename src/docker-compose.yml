@@ -1,0 +1,22 @@
+version: "3.4"
+services:
+    web16124:
+        build: .
+        volumes:
+            - /d/work/repo/nopCommerce-Linux/src/_appdata/logs:/app/logs
+        container_name: db16124_app
+        ports:
+            - "16124:80"
+        depends_on:
+            - db16124
+    db16124:
+        image: "microsoft/mssql-server-linux"
+        container_name: db16124_mssql-server
+        environment:
+            SA_PASSWORD: "Your_password123"
+            ACCEPT_EULA: "Y"
+            MSSQL_PID: "Express"
+
+
+volumes:
+  db16124_data:            
