@@ -67,5 +67,10 @@ namespace Nop.Core.Domain
         /// Gets or sets a value of Google+ page URL of the site
         /// </summary>
         public string GooglePlusLink { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to disable markup minification
+        /// </summary>
+        public bool MinificationEnabled { get; set; }
     }
 }

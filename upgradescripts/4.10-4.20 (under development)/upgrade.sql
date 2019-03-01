@@ -1070,6 +1070,14 @@ END
 GO
 
 --new setting
+IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [Name] = N'storeinformationsettings.minificationenabled')
+BEGIN
+    INSERT [Setting] ([Name], [Value], [StoreId])
+    VALUES (N'storeinformationsettings.minificationenabled', N'False', 0)
+END
+GO
+
+--new setting
 IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [Name] = N'catalogsettings.useajaxloadmenu')
 BEGIN
     INSERT [Setting] ([Name], [Value], [StoreId])
