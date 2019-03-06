@@ -16,6 +16,7 @@ using Nop.Core.Caching;
 using Nop.Core.Configuration;
 using Nop.Core.Data;
 using Nop.Core.Domain;
+using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Security;
 using Nop.Core.Http;
 using Nop.Core.Infrastructure;
@@ -358,13 +359,13 @@ namespace Nop.Web.Framework.Infrastructure.Extensions
                 {
                     options.AllowMinificationInDevelopmentEnvironment = true;
                     options.AllowCompressionInDevelopmentEnvironment = true;
-                    options.DisableMinification = !EngineContext.Current.Resolve<StoreInformationSettings>().MinificationEnabled; 
-                    options.DisableCompression = options.DisableMinification; 
+                    options.DisableMinification = !EngineContext.Current.Resolve<CommonSettings>().MinificationEnabled;
+                    options.DisableCompression = options.DisableMinification;
                     options.DisablePoweredByHttpHeaders = true;
                 })
                 .AddHtmlMinification(options =>
                 {
-                    HtmlMinificationSettings settings = options.MinificationSettings;
+                    var settings = options.MinificationSettings;
                     settings.RemoveHttpProtocolFromAttributes = true;
                     settings.RemoveHttpsProtocolFromAttributes = true;
 
@@ -373,7 +374,7 @@ namespace Nop.Web.Framework.Infrastructure.Extensions
                 })
                 .AddXmlMinification(options =>
                 {
-                    XmlMinificationSettings settings = options.MinificationSettings;
+                    var settings = options.MinificationSettings;
                     settings.RenderEmptyTagsWithSpace = true;
                     settings.CollapseTagsWithoutContent = true;
                 })
@@ -394,8 +395,7 @@ namespace Nop.Web.Framework.Infrastructure.Extensions
                             Level = CompressionLevel.Fastest
                         })
                     };
-                })
-                ;
+                });
         }
     }
 }

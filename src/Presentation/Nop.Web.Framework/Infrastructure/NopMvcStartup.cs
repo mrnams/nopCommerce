@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nop.Core.Infrastructure;
 using Nop.Web.Framework.Infrastructure.Extensions;
-using WebMarkupMin.AspNetCore2;
 
 namespace Nop.Web.Framework.Infrastructure
 {
@@ -41,9 +40,6 @@ namespace Nop.Web.Framework.Infrastructure
             //add MiniProfiler
             application.UseMiniProfiler();
 
-            //use WebMarkupMin
-            application.UseWebMarkupMin();
-
             //MVC routing
             application.UseNopMvc();
         }
@@ -51,10 +47,6 @@ namespace Nop.Web.Framework.Infrastructure
         /// <summary>
         /// Gets order of this startup configuration implementation
         /// </summary>
-        public int Order
-        {
-            //MVC should be loaded last
-            get { return 1000; }
-        }
+        public int Order => 1000;
     }
 }

@@ -66,6 +66,9 @@ namespace Nop.Web.Framework.Infrastructure
 
             //use request localization
             application.UseRequestLocalization();
+
+            //use WebMarkupMin
+            application.UseNopWebMarkupMin();
         }
 
         /// <summary>

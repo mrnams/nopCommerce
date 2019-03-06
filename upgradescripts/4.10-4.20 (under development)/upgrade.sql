@@ -1070,10 +1070,10 @@ END
 GO
 
 --new setting
-IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [Name] = N'storeinformationsettings.minificationenabled')
+IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [Name] = N'commonsettings.minificationenabled')
 BEGIN
     INSERT [Setting] ([Name], [Value], [StoreId])
-    VALUES (N'storeinformationsettings.minificationenabled', N'False', 0)
+    VALUES (N'commonsettings.minificationenabled', N'True', 0)
 END
 GO
 
