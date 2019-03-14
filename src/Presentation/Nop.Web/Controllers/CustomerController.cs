@@ -292,7 +292,6 @@ namespace Nop.Web.Controllers
             //user profile changes
             if (_gdprSettings.LogUserProfileChanges)
             {
-
                 if (oldCustomerInfoModel.Gender != newCustomerInfoModel.Gender)
                     _gdprService.InsertLog(customer, 0, GdprRequestType.ProfileChanged, $"{_localizationService.GetResource("Account.Fields.Gender")} = {newCustomerInfoModel.Gender}");
 
@@ -337,22 +336,17 @@ namespace Nop.Web.Controllers
                     var stateProvinceName = _stateProvinceService.GetStateProvinceById(newCustomerInfoModel.StateProvinceId).Name;
                     _gdprService.InsertLog(customer, 0, GdprRequestType.ProfileChanged, $"{_localizationService.GetResource("Account.Fields.StateProvince")} = {stateProvinceName}");
                 }
-
             }
+            
+            if (!_gdprSettings.LogNewsletterConsent) 
+                return;
 
             //news
-            if (_gdprSettings.LogNewsletterConsent)
-            {
-                if (newCustomerInfoModel.Newsletter)
-                {
-                    _gdprService.InsertLog(customer, 0, GdprRequestType.ConsentAgree, _localizationService.GetResource("Gdpr.Consent.Newsletter"));
-                }
-                else
-                {
-                    _gdprService.InsertLog(customer, 0, GdprRequestType.ConsentDisagree, _localizationService.GetResource("Gdpr.Consent.Newsletter"));
-                }
-            }
+            _gdprService.InsertLog(customer, 0,
+                newCustomerInfoModel.Newsletter ? GdprRequestType.ConsentAgree : GdprRequestType.ConsentDisagree,
+                _localizationService.GetResource("Gdpr.Consent.Newsletter"));
         }
+
         #endregion
 
         #region Methods
