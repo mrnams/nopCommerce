@@ -78,6 +78,7 @@
         public static string DashboardOrderreportsAfter => "admin_dashboard_orderreports_after";
         public static string DashboardTop => "admin_dashboard_top";
         public static string DatesAndRangesButtons => "admin_dates_and_ranges_buttons";
+        public static string DatesAndRangesDetailsBlock => "admin_dates_and_ranges_details_block";
         public static string DeliveryDateDetailsBottomp => "admin_delivery_date_details_bottomp";
         public static string DeliveryDateDetailsButtons => "admin_delivery_date_details_buttons";
         public static string DeliveryDateDetailsTop => "admin_delivery_date_details_top";
@@ -121,11 +122,13 @@
         public static string LogListButtons => "admin_log_list_buttons";
         public static string MaintenanceBottom => "admin_maintenance_bottom";
         public static string MaintenanceButtons => "admin_maintenance_buttons";
+        public static string MaintenanceDetailsBlock => "admin_maintenance_details_block";
         public static string MaintenanceTop => "admin_maintenance_top";
         public static string ManufacturerDetailsBlock => "admin_manufacturer_details_block";
         public static string ManufacturerDetailsButtons => "admin_manufacturer_details_buttons";
         public static string ManufacturerListButtons => "admin_manufacturer_list_buttons";
         public static string ManufacturerTemplateListButtons => "admin_manufacturer_template_list_buttons";
+        public static string MeasureListBlock => "admin_measure_list_block";
         public static string MeasureListButtons => "admin_measure_list_buttons";
         public static string MediaSettingsButtons => "admin_media_settings_buttons";
         public static string MediaSettingsDetailsBlock => "admin_media_settings_details_block";
